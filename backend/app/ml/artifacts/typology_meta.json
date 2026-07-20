@@ -1,0 +1,1 @@
+{"materials": ["Plastic", "Organic", "Metal", "Cardboard", "Mixed"], "img_size": 80, "metrics": {"fill_mae": 0.1443, "material_accuracy": 0.8179}, "density_kg_m3": {"Plastic": 60, "Organic": 350, "Metal": 250, "Cardboard": 55, "Mixed": 150}, "emission_kgco2e_per_kg": {"Plastic": 0.03, "Organic": 0.5, "Metal": 0.02, "Cardboard": 0.4, "Mixed": 0.25}, "dumpster_volume_m3": 4.5}

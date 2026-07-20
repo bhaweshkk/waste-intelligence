@@ -1,0 +1,1 @@
+{"bin_types": ["General", "Recycling", "Organic"], "capacities": {"General": 1100, "Recycling": 660, "Organic": 240}, "weather_options": ["Clear", "Normal", "Rain", "Heatwave"], "metrics": {"mae": 8.75, "r2": 0.653}}

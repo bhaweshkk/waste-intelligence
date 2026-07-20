@@ -1,0 +1,1 @@
+{"bin_types": ["Paper", "Plastic", "Metal", "Glass"], "contaminant_classes": ["None", "Paper", "Plastic", "Metal", "Glass", "Organic"], "img_size": 80, "alert_threshold_pct": 15.0, "metrics": {"pct_mae": 14.62, "class_accuracy": 0.6, "alert_accuracy": 0.805}}
