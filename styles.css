@@ -1,0 +1,78 @@
+:root {
+  --sbg: #0A0D12; --spanel: #12161Fcc; --spanel-solid: #12161F; --spanel-alt: #171C27; --sborder: #232936;
+  --stext: #E7EAF0; --stext-muted: #838EA3; --saccent: #4FA8E8;
+}
+* { box-sizing: border-box; }
+html, body, #root { margin: 0; padding: 0; height: 100%; }
+body {
+  font-family: 'IBM Plex Sans', sans-serif;
+  background:
+    radial-gradient(ellipse 900px 500px at 15% -5%, rgba(79,168,232,0.16), transparent 60%),
+    radial-gradient(ellipse 800px 500px at 100% 10%, rgba(139,124,246,0.12), transparent 55%),
+    radial-gradient(ellipse 700px 600px at 50% 110%, rgba(79,209,140,0.10), transparent 55%),
+    var(--sbg);
+  color: var(--stext);
+}
+.mono { font-family: 'IBM Plex Mono', monospace; }
+
+.app-shell { display: flex; min-height: 100vh; }
+
+.orb { position: fixed; border-radius: 50%; filter: blur(60px); pointer-events: none; z-index: 0; opacity: 0.5; }
+.orb-1 { width: 420px; height: 420px; background: radial-gradient(circle, rgba(79,168,232,0.35), transparent 70%); top: -120px; left: 10%; animation: driftA 22s ease-in-out infinite; }
+.orb-2 { width: 380px; height: 380px; background: radial-gradient(circle, rgba(139,124,246,0.3), transparent 70%); top: 30%; right: -80px; animation: driftB 26s ease-in-out infinite; }
+.orb-3 { width: 320px; height: 320px; background: radial-gradient(circle, rgba(79,209,140,0.25), transparent 70%); bottom: -60px; left: 35%; animation: driftC 30s ease-in-out infinite; }
+@keyframes driftA { 0%,100% { transform: translate(0,0); } 50% { transform: translate(40px, 30px); } }
+@keyframes driftB { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-35px, 25px); } }
+@keyframes driftC { 0%,100% { transform: translate(0,0); } 50% { transform: translate(25px, -30px); } }
+@media (prefers-reduced-motion: reduce) { .orb-1, .orb-2, .orb-3 { animation: none; } }
+
+/* Sidebar */
+.sidebar { width: 260px; flex-shrink: 0; background: var(--spanel); backdrop-filter: blur(14px); border-right: 1px solid var(--sborder); display: flex; flex-direction: column; padding: 16px 0 12px; position: relative; z-index: 5; box-shadow: 4px 0 24px rgba(0,0,0,0.25); }
+.sidebar-brand { display: flex; align-items: center; gap: 9px; padding: 0 18px 14px; border-bottom: 1px solid var(--sborder); margin-bottom: 10px; }
+.sidebar-brand-logo { width: 32px; height: 32px; border-radius: 9px; background: linear-gradient(145deg, #63B8FA, #2E7FBF); display: flex; align-items: center; justify-content: center; color: #06131F; flex-shrink: 0; box-shadow: 0 4px 10px rgba(79,168,232,0.4), inset 0 1px 1px rgba(255,255,255,0.4); }
+.sidebar-brand-text { font-size: 13.5px; font-weight: 700; }
+.sidebar-brand-sub { font-size: 9.5px; color: var(--stext-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+.sidebar-nav { flex: 1; overflow-y: auto; padding: 0 10px; }
+.nav-cat-label { font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--stext-muted); padding: 8px 10px 4px; }
+.nav-item { width: 100%; display: flex; align-items: center; gap: 9px; padding: 8px 10px; border-radius: 8px; background: transparent; border: none; color: var(--stext-muted); font-size: 12px; font-weight: 500; cursor: pointer; text-align: left; margin-bottom: 2px; text-decoration: none; transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease; }
+.nav-item:hover { background: var(--spanel-alt); color: var(--stext); transform: translateX(3px); }
+.nav-item.active { background: var(--spanel-alt); color: var(--stext); font-weight: 700; box-shadow: inset 2.5px 0 0 var(--item-accent); }
+.nav-item-icon { width: 22px; height: 22px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+.main-area { flex: 1; display: flex; flex-direction: column; min-width: 0; position: relative; z-index: 2; }
+.main-content { flex: 1; overflow-y: auto; padding: 28px 32px 48px; max-width: 1200px; }
+
+.page-header { margin-bottom: 20px; }
+.page-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; color: var(--saccent); margin: 0 0 6px; text-transform: uppercase; }
+.page-title { font-size: 22px; font-weight: 700; margin: 0 0 6px; }
+.page-desc { font-size: 12.5px; color: var(--stext-muted); max-width: 640px; line-height: 1.5; }
+
+.panel { background: linear-gradient(160deg, var(--spanel-alt), var(--spanel-solid)); border: 1px solid var(--sborder); border-radius: 14px; padding: 18px; box-shadow: 0 10px 30px -14px rgba(0,0,0,0.5); }
+.panel h3 { font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.7px; color: var(--stext-muted); margin: 0 0 12px; }
+
+.chip { font-family: 'IBM Plex Mono', monospace; font-size: 11px; border: 1px solid var(--sborder); border-radius: 20px; padding: 5px 12px; background: var(--spanel-alt); color: var(--stext-muted); }
+.chip b { color: var(--saccent); }
+
+.btn { display: inline-flex; align-items: center; gap: 6px; border-radius: 8px; padding: 9px 14px; font-size: 12.5px; font-weight: 600; cursor: pointer; border: 1px solid var(--sborder); background: var(--spanel-alt); color: var(--stext); transition: transform 0.12s ease, box-shadow 0.12s ease; }
+.btn:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0,0,0,0.3); }
+.btn:active { transform: scale(0.97); }
+.btn:disabled { opacity: 0.5; cursor: default; transform: none; }
+.btn-primary { background: var(--saccent); color: #06131F; border-color: var(--saccent); }
+
+.input, select, textarea.input { width: 100%; background: var(--spanel-alt); border: 1px solid var(--sborder); border-radius: 8px; padding: 8px 10px; color: var(--stext); font-size: 12.5px; font-family: inherit; }
+.input:focus, select:focus { outline: none; border-color: var(--saccent); box-shadow: 0 0 0 3px rgba(79,168,232,0.15); }
+
+.error-banner { background: rgba(232,96,76,0.12); border: 1px solid rgba(232,96,76,0.4); border-radius: 8px; padding: 10px 12px; font-size: 12px; color: #FFC7BC; margin-bottom: 14px; }
+.loading-row { display: flex; align-items: center; gap: 8px; color: var(--stext-muted); font-size: 12.5px; padding: 20px; }
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spin { animation: none; } }
+
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-thumb { background: var(--sborder); border-radius: 4px; }
+
+@media (max-width: 860px) {
+  .app-shell { flex-direction: column; }
+  .sidebar { width: 100%; }
+  .main-content { padding: 16px; }
+}
